@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hai Kamu :)</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+}
+
+.container {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  max-width: 90%;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background: #ff80ab;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+button:hover {
+  background: #ff4081;
+}
+
+#message {
+  margin-top: 20px;
+  font-size: 18px;
+}
+
+.hidden {
+  display: none;
+}
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Woy Sin😄</h1>
+    <p>Aku punya sesuatu buat kamu...</p>
+    <button id="revealBtn">Pencet Coba 💌</button>
+    <div id="message" class="hidden"></div>
+  </div>
+
+  <audio id="bgm" autoplay loop>
+    <source src="music.mp3" type="audio/mpeg" />
+  </audio>
+
+  <script>
+    const revealBtn = document.getElementById('revealBtn');
+const messageDiv = document.getElementById('message');
+const msg = "Aku cuma mau bilang... Kamu itu cantik, manis. 😊 Aku suka kamu tapi gabisa jadian hehe.💖";
+
+revealBtn.addEventListener('click', () => {
+  revealBtn.style.display = 'none';
+  messageDiv.classList.remove('hidden');
+  typeWriter(msg, messageDiv, 0);
+});
+
+function typeWriter(text, element, index) {
+  if (index < text.length) {
+    element.innerHTML += text.charAt(index);
+    setTimeout(() => typeWriter(text, element, index + 1), 50);
+  }
+}
+
+  </script>
+</body>
+</html>
